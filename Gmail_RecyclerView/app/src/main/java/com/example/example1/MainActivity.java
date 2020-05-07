@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button btn;
         btn = findViewById(R.id.btn_favor);
+        findViewById(R.id.btn_favor).requestFocus();
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
