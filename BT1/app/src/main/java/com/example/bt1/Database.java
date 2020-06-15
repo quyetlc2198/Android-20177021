@@ -48,8 +48,6 @@ public class Database extends SQLiteOpenHelper {
 
     }
 
-
-
     public void add(Model student){
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues values =new ContentValues();
@@ -101,26 +99,6 @@ public class Database extends SQLiteOpenHelper {
         return t;
     }
 
-    public ArrayList<Model> search(String s){
-        ArrayList<Model> modelList = new ArrayList<>();
-        String selectallquery = "SELECT * FROM " + TABLE_NAME + " WHERE NAME = " + s + "";
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectallquery,null);
-        if (cursor.moveToFirst()){
-            do {
-                Model student = new Model();
-                student.setID(cursor.getInt(0));
-                student.setName(cursor.getString(1));
-                student.setEmail(cursor.getString(2));
-                student.setBirthday(cursor.getString(3));
-                student.setBorn(cursor.getString(4));
-                modelList.add(student);
-            }while(cursor.moveToNext());
-        }
-        db.close();
-        return modelList;
-    }
 
 
 }

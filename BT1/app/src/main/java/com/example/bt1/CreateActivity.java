@@ -1,11 +1,13 @@
 package com.example.bt1;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,12 +36,22 @@ public class CreateActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 Bundle bundle = new Bundle();
-                Model student = createStudent();
-                String json = gson.toJson(student);
-                bundle.putString(OBJECT,json);
-                intent.putExtra(BUNDLE , bundle);
-                setResult(RESULT_OK , intent);
-                finish();
+                if(edid.getText().length() == 0 || edname.getText().length() == 0){
+                    Toast.makeText(CreateActivity.this,"Fail",Toast.LENGTH_SHORT).show();
+                    String json = "fail";
+                    bundle.putString(OBJECT,json);
+                    intent.putExtra(BUNDLE , bundle);
+                    setResult(RESULT_OK , intent);
+                    finish();
+                }else{
+                    Model student = createStudent();
+                    String json = gson.toJson(student);
+                    bundle.putString(OBJECT,json);
+                    intent.putExtra(BUNDLE , bundle);
+                    setResult(RESULT_OK , intent);
+                    finish();
+                }
+
             }
         });
     }

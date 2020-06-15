@@ -32,11 +32,6 @@ public class MainActivity<thecoffeehouse> extends AppCompatActivity {
     ListView lsStudent;
     ArrayList<Model> list;
     custom_adapter adapter;
-    public static final String ID ="id";
-    public static final String NAME ="name";
-    public static final String EMAIL ="email";
-    public static final String BIRTHDAY ="birthday";
-    public static final String ADDRESS ="address"; //born
     public static final String OBJECT = "object";
     public static final String BUNDLE = "BUNDLE";
     public static final int REQUEST_CODE = 111;
@@ -131,7 +126,7 @@ public class MainActivity<thecoffeehouse> extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(s.length() > 3){
+                if(s.length() > 1){
                     list_view3(s.toString());
                 }else{
                     list_view();
@@ -168,10 +163,26 @@ public class MainActivity<thecoffeehouse> extends AppCompatActivity {
             list_view();
         }else{
             String json = data.getBundleExtra(BUNDLE).getString(OBJECT);
-            Model student = gson.fromJson(json,Model.class);
-            database.add(student);
-            Toast.makeText(MainActivity.this,"sucess new student",Toast.LENGTH_SHORT).show();
-            list_view();
+            if(json.contains("fail")){
+                list_view();
+            }else{
+                Model student = gson.fromJson(json,Model.class);
+                String test = "";
+                for(int i =0; i < list.size();i++){
+                    if(student.getID() == list.get(i).getID()){
+                        test = "AAA";
+                    }
+                }
+                if(test.contains("AA")){
+                    Toast.makeText(MainActivity.this,"Trùng ID", Toast.LENGTH_SHORT).show();
+                }else{
+                    database.add(student);
+                    Toast.makeText(MainActivity.this,"sucess new student",Toast.LENGTH_SHORT).show();
+                    list_view();
+                }
+
+            }
+
         }
 
     }
@@ -197,7 +208,5 @@ public class MainActivity<thecoffeehouse> extends AppCompatActivity {
         list = filterList;
         adapter.notifyDataSetChanged();
     }
-
-
 
 }
