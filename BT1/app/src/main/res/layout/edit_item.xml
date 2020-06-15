@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_margin="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="name"
+        android:id="@+id/usename"/>
+    <EditText
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="id"
+        android:id="@+id/mssv"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="email"
+        android:id="@+id/email"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="address"
+        android:id="@+id/born"/>
+    <EditText
+        android:inputType="datetime"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="birthday"
+        android:id="@+id/birthday"/>
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <Button
+        android:background="@android:color/white"
+        android:layout_margin="16dp"
+        android:id="@+id/btn_update"
+        android:layout_weight="1"
+        android:layout_height="80dp"
+        android:text="Update"
+        android:layout_width="match_parent" />
+    <Button
+        android:background="@android:color/white"
+        android:layout_margin="16dp"
+        android:id="@+id/btn_save"
+        android:layout_weight="1"
+        android:layout_height="80dp"
+        android:text="Create"
+        android:layout_width="match_parent" />
+    </LinearLayout>
+</LinearLayout>
