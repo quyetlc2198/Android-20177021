@@ -36,6 +36,7 @@ public class CreateActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 Bundle bundle = new Bundle();
+                // Activitymain đợi kết quả trả về
                 if(edid.getText().length() == 0 || edname.getText().length() == 0){
                     Toast.makeText(CreateActivity.this,"Fail",Toast.LENGTH_SHORT).show();
                     String json = "fail";

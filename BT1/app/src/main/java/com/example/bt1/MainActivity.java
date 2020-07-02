@@ -49,8 +49,8 @@ public class MainActivity<thecoffeehouse> extends AppCompatActivity {
         btn_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent2 = new Intent(MainActivity.this , CreateActivity.class);
+                // đợi kết quả từ intent2 trả về
                 startActivityForResult(intent2,REQUEST_CODE1);
             }
         });
