@@ -98,7 +98,4 @@ public class Database extends SQLiteOpenHelper {
         int t = db.delete(TABLE_NAME,ID + "=?",new String[] {String.valueOf(student.getID())});
         return t;
     }
-
-
-
 }
